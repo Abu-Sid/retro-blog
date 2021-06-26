@@ -12,13 +12,19 @@ import Login from '../src/components/Login/Login';
 import './App.css';
 import Dashboard from './components/Admin/Dashboard';
 import Footer from './components/Footer';
+import PrivateRoute from './lib/PrivateRoute';
 
 export const context = createContext();
 function App() {
-  const [loggedUser,setLoggedUser]=useState({})
+  const [loggedUser,setLoggedUser]=useState({
+    isSignedIn: true,
+    email: '',
+    password: '',
+    error :''
+  })
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/blogs")
+    fetch("https://evening-caverns-39772.herokuapp.com/blogs")
       .then((res) => res.json())
       .then((data) => {
         setBlogs(data);
@@ -51,12 +57,15 @@ function App() {
       <Route path="/manageBlog">
         <ManageBlog/>
       </Route>
-      <Route path="/dashboard">
+      <PrivateRoute path="/dashboard">
         <Dashboard />
-      </Route>
+      </PrivateRoute>
       <Route path="/addAdmin">
         <AddAdmin />
       </Route>
+      <Route path="/login"> 
+          <Login/>
+        </Route>
       <Route path="*">
         <h1 style={{textAlign: "center"}}>page not found</h1>
       </Route>

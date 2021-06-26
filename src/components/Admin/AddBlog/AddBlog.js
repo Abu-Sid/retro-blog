@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import AdminSid from '../AdminSid/AdminSid';
 
 const AddBlog = () => {
     const { register, handleSubmit,reset } = useForm();
@@ -16,7 +17,7 @@ const AddBlog = () => {
       image: imageURL
     };
     console.log(blogData);
-    const url = `http://localhost:5000/addBlog`;
+    const url = `https://evening-caverns-39772.herokuapp.com/addBlog`;
     fetch(url, {
       method: 'POST', 
       headers: {
@@ -47,9 +48,10 @@ const AddBlog = () => {
 
   }
   return (
-    <>
-    <div className="flex flex-wrap justify-center w-full md:w-2/3 my-6 pr-0 lg:pr-2">
-      
+
+    
+    <div className="flex flex-wrap justify-center w-full my-6 pr-0 lg:pr-2">
+    <AdminSid/>
       <form class="p-10 bg-black-200 rounded shadow-xl" onSubmit={handleSubmit(onSubmit)}>
         <h1 className="text-xl pb-6 flex items-center justify-center">Add New Blog</h1>
         <label className="mt-2 block text-sm text-black-600">Upload Image</label>
@@ -64,7 +66,7 @@ const AddBlog = () => {
         <input className="mt-6 px-4 py-1 text-white font-light tracking-wider bg-gray-900 rounded" type="submit" />
       </form>
     </div>
-    </>
+
   );
 };
 

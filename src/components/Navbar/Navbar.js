@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import { context } from '../../App';
 
 const Navbar = () => {
+    const {loggedUser, setLoggedUser} = useContext(context);
     return (
         <div>
             <nav className="font-sans flex flex-col text-center content-center sm:flex-row sm:text-left sm:justify-between py-2 px-6 bg-white shadow sm:items-baseline w-full">
@@ -11,7 +13,11 @@ const Navbar = () => {
                 <div className="sm:mb-0 self-center">
                 <a href="/" className="text-md no-underline text-black hover:text-blue-700 ml-2 px-1">About Us </a>
                 <a href="/" className="text-md no-underline text-grey-darker hover:text-blue-700 ml-2 px-1">Contact</a>
+                { loggedUser?.email?
+                <a href="/" onClick={() => setLoggedUser({})} className="text-md no-underline text-grey-darker hover:text-blue-700 ml-2 px-1">Logout</a>
+                :
                 <a href="/dashboard" className="text-md no-underline text-grey-darker hover:text-blue-700 ml-2 px-1">Dashboard</a>
+                }
         
                 </div>
             </nav>

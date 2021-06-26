@@ -20,7 +20,6 @@ const Login = () => {
   
     let { from } = location.state || { from: { pathname: "/" } };
     const onSubmit = data => {
-        console.log(data);
 
         if (data.email && data.password) {
             firebase.auth().signInWithEmailAndPassword(data.email, data.password)
@@ -51,7 +50,7 @@ const Login = () => {
         <div className="flex flex-wrap justify-center w-full  my-6 pr-0 lg:pr-2">
       
       <form class="p-10 bg-black-200 rounded shadow-xl" onSubmit={handleSubmit(onSubmit)}>
-        <h1 className="text-xl pb-6 flex items-center justify-center">Add New Admin</h1>
+        <h1 className="text-3xl pb-6 flex items-center justify-center">Login</h1>
         <label className="mt-2 block text-sm text-gray-600">Email</label>
         <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="email"  {...register("email")} />
         <label className="mt-2 block text-sm text-gray-600">Password</label>

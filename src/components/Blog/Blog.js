@@ -18,7 +18,7 @@ const Blog = ({blog}) => {
                         By <span className="font-semibold hover:text-gray-800">Retro Blog</span>, Published on {format(parseISO(created), 'MMMM do, uuu')}
                     </p>
                     <p  className="line-clamp-10 ... pb-6">{description}</p>
-                    <Link href="/" className="uppercase text-blue-700 hover:text-black">Continue Reading <i className="fas fa-arrow-right"></i></Link>
+                    <Link to={`/blog/${_id}`} className="uppercase text-blue-700 hover:text-black">Continue Reading <i className="fas fa-arrow-right"></i></Link>
                 </div>
                 </Link>
             </article>

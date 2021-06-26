@@ -1,5 +1,6 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
+import AdminSid from '../AdminSid/AdminSid';
 
 const AddAdmin = () => {
     const { register, handleSubmit,reset } = useForm();
@@ -7,7 +8,7 @@ const AddAdmin = () => {
     const onSubmit = data => {
         console.log(data);
         
-          const url = `http://localhost:5000/addAdmin`;
+          const url = `https://evening-caverns-39772.herokuapp.com/addAdmin`;
           fetch(url, {
             method: 'POST', 
             headers: {
@@ -21,8 +22,8 @@ const AddAdmin = () => {
             reset()
     }
     return (
-        <div className="flex flex-wrap justify-center w-full md:w-2/3 my-6 pr-0 lg:pr-2">
-      
+        <div className="flex flex-wrap justify-center w-full md:w-full my-6 pr-0 lg:pr-2">
+          <AdminSid/>
       <form class="p-10 bg-black-200 rounded shadow-xl" onSubmit={handleSubmit(onSubmit)}>
         <h1 className="text-xl pb-6 flex items-center justify-center">Add New Admin</h1>
         <label className="mt-2 block text-sm text-gray-600">Email</label>

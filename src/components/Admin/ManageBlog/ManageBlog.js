@@ -1,13 +1,14 @@
 import { format, parseISO } from 'date-fns';
 import React, { useContext } from 'react';
 import { context } from '../../../App';
+import AdminSid from '../AdminSid/AdminSid';
 
 const ManageBlog = () => {
   const {blogs, setBlogs} = useContext(context);
   const handleDelete = (id) => {
 
     if (window.confirm("Are You Sure?")){
-    fetch(`http://localhost:5000/delete/${id}`, {
+    fetch(`https://evening-caverns-39772.herokuapp.com/delete/${id}`, {
         method: "DELETE",
       })
         .then((res) => res.json())
@@ -20,13 +21,14 @@ const ManageBlog = () => {
         }  
   };
     return (
-        <div className= 'md:w-2/3 flex flex-wrap justify-center'>
+        <div className= 'w-full flex flex-wrap justify-center'>
+            <AdminSid/>
+            <div className="w-full md:w-2/3 overflow-hidden rounded-lg shadow-xs">
             <h4
               className="mb-4 text-lg font-semibold text-gray-600 dark:text-gray-300"
             >
               Wel Come! Admin Dashboard
             </h4>
-            <div className="w-full overflow-hidden rounded-lg shadow-xs">
                 <div className="w-full overflow-x-auto">
                     <table className="w-full whitespace-no-wrap">
                         <thead>

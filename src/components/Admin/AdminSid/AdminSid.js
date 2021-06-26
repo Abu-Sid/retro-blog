@@ -1,6 +1,7 @@
 import React from 'react';
 
 const AdminSid = () => {
+  
     return (
         <aside
         className="w-full md:w-1/3 flex flex-col items-center px-3 z-20   overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0"
@@ -16,7 +17,7 @@ const AdminSid = () => {
           <li className="relative px-6 py-3">
           <a
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="/dashboard"
+                href="/manageBlog"
               >
                 <svg
                   className="w-5 h-5"
@@ -85,7 +86,7 @@ const AdminSid = () => {
             <li className="relative px-6 py-3">
               <a
                 className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-                href="../charts.html"
+                href="/"
               >
                 <svg
                   className="w-5 h-5"
@@ -102,7 +103,7 @@ const AdminSid = () => {
                   ></path>
                   <path d="M20.488 9H15V3.512A9.025 9.025 0 0120.488 9z"></path>
                 </svg>
-                <span className="ml-4">Charts</span>
+                <span className="ml-4">HOME</span>
               </a>
             </li>
           </ul>
